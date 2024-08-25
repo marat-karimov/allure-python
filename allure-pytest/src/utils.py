@@ -82,7 +82,7 @@ def format_allure_link(config, url, link_type):
 
 def pytest_markers(item):
     for keyword in item.keywords.keys():
-        if any([keyword.startswith('allure_'), keyword == 'parametrize']):
+        if any([keyword.startswith('allure_'), keyword in ['parametrize', 'dependency']]):
             continue
         marker = item.get_closest_marker(keyword)
         if marker is None:
